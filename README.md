@@ -1,6 +1,6 @@
 ## About
 
-![Veeso](http://veeso.co/img/veeso.png)
+[<img src="http://veeso.co/wp-content/themes/veeso/assets/img/veeso_100.png">](http://veeso.co)
 
 The Veeso Media Player allows you to:
 
@@ -124,4 +124,3 @@ Appscend Video Solutions GmbH
 ## License
 
 Commercial license. Contact <sales@veeso.co>.
-
