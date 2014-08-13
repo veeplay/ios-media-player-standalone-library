@@ -212,6 +212,18 @@ typedef void (^APSMediaPlayerFinishBlock)();
  *  @param url The URL of the video clip.
  */
 - (void)setCurrentURL:(NSURL*)url;
+/**
+ *  Adds additional overlays to display over the current unit.
+ *
+ *  @param overlays Additional `APSMediaOverlay` objects to inject.
+ */
+- (void)addOverlays:(NSArray*)overlays;
+/**
+ *  Adds additional events to the current unit's timeline.
+ *
+ *  @param overlays Additional `APSMediaEvent` objects to inject.
+ */
+- (void)addEvents:(NSArray*)events;
 
 /**-----------------------------------------------------------------------------
  * @name Tracking Playback Events
@@ -347,6 +359,13 @@ typedef void (^APSMediaPlayerFinishBlock)();
  *  @return `YES` if the player is currently rendering a live stream.
  */
 - (BOOL)isStreamingLive;
+
+/**
+ *  Obtains the most recent time-based metadata provided by the streamed movie.
+ *
+ *  @return An array of the most recent `MPTimedMetadata` objects provided by the streamed movie. See Apple's [documentation](https://developer.apple.com/library/ios/documentation/mediaplayer/reference/MPTimedMetadata_Class/Reference/Reference.html#//apple_ref/occ/cl/MPTimedMetadata) for more details about `MPTimedMetadata`.
+ */
+- (NSArray*)timedMetadata;
 
 /**-----------------------------------------------------------------------------
  * @name Getting Video Thumbnails

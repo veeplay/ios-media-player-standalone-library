@@ -96,6 +96,10 @@ The builder is configured at this point and is able to generate an array of medi
 
 In the final execution block we instruct the player to start playback using the final generated array of media units, configured remotely via JSON input.
 
+## Configuring from JSON
+
+See [this guide](http://veeso.github.io/json-docs/) for documentation on all available configuration options and examples.
+
 ## Creating custom overlay controllers
 
 APSMediaPlayer allows developers to create their own, JSON or dictionary configurable overlays. To create a custom overlay:

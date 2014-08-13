@@ -10,6 +10,7 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "APSMediaTrackableObject.h"
 @class APSMediaOverlay;
+@class APSMediaEvent;
 
 #ifndef kAPSMetadataTitle
 #define kAPSMetadataTitle @"title"
@@ -66,7 +67,7 @@ typedef NS_ENUM(NSInteger, APSMediaControlsDisplay) {
 /**
  *  Adds an `APSMediaOverlay` object to the unit, to be rendered together.
  *
- *  @param overlay The `APSMediaPlayer` object to be connected to the unit.
+ *  @param overlay The `APSMediaOverlay` object to be connected to the unit.
  */
 - (void)addOverlay:(APSMediaOverlay*)overlay;
 
@@ -88,6 +89,36 @@ typedef NS_ENUM(NSInteger, APSMediaControlsDisplay) {
  *  @return An array of `APSMediaOverlay` objects.
  */
 - (NSArray*)overlays;
+
+/**-----------------------------------------------------------------------------
+ * @name Managing the media overlays connected to the current unit
+ * -----------------------------------------------------------------------------
+ */
+/**
+ *  Adds an object that implements the `APSMediaEvent` protocol to the unit.
+ *
+ *  @param overlay The event to be connected to the unit.
+ */
+- (void)addEvent:(APSMediaEvent*)overlay;
+
+/**
+ *  Connects an array of objects that implement the `APSMediaEvent` protocol to the current unit.
+ *
+ *  @param overlays An array of events to be connected to the unit.
+ */
+- (void)setEvents:(NSArray*)events;
+
+/**
+ *  Removes all currently connected events.
+ */
+- (void)clearEvents;
+
+/**
+ *  Returns an array containing all event objects currently connected to the unit.
+ *
+ *  @return An array of objects that implement the `APSMediaEvent` protocol.
+ */
+- (NSArray*)events;
 
 /**-----------------------------------------------------------------------------
  * @name Unit Properties
