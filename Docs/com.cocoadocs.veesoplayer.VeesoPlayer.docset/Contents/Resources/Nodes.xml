@@ -49,6 +49,7 @@
 						<NodeRef refid="26"/>
 						<NodeRef refid="27"/>
 						<NodeRef refid="28"/>
+						<NodeRef refid="29"/>
 						
 					</Subnodes>
 				</Node>
@@ -58,7 +59,6 @@
 					<Name>Constants</Name>
 					<Path>index.html</Path>
 					<Subnodes>
-						<NodeRef refid="29"/>
 						<NodeRef refid="30"/>
 						<NodeRef refid="31"/>
 						<NodeRef refid="32"/>
@@ -66,6 +66,7 @@
 						<NodeRef refid="34"/>
 						<NodeRef refid="35"/>
 						<NodeRef refid="36"/>
+						<NodeRef refid="37"/>
 						
 					</Subnodes>
 				</Node>
@@ -669,6 +670,33 @@
             
         </Node>
 		<Node id="28" type="file" documentType="reference">
+            <Name>APSUnitManagerProtocol</Name>
+            <Path>Protocols/APSUnitManagerProtocol.html</Path>
+            
+                <Subnodes>
+                <Node type="section">
+                    <Path>Protocols/APSUnitManagerProtocol.html</Path>
+                    <Name>Overview</Name>
+                    <Anchor>overview</Anchor>
+                </Node>
+                <Node type="section">
+                    <Path>Protocols/APSUnitManagerProtocol.html</Path>
+                    <Name>Tasks</Name>
+                    <Anchor>tasks</Anchor>
+                </Node>
+                
+                
+                
+                <Node type="section">
+                    <Path>Protocols/APSUnitManagerProtocol.html</Path>
+                    <Name>Instance Methods</Name>
+                    <Anchor>instance_methods</Anchor>
+                </Node>
+                
+            </Subnodes>
+            
+        </Node>
+		<Node id="29" type="file" documentType="reference">
             <Name>KRAdapter</Name>
             <Path>Protocols/KRAdapter.html</Path>
             
@@ -696,42 +724,42 @@
             
         </Node>
 		
-        <Node id="29" type="file" documentType="reference">
+        <Node id="30" type="file" documentType="reference">
             <Name>APSAdPodFallback</Name>
             <Path>Constants/APSAdPodFallback.html</Path>
             
         </Node>
-		<Node id="30" type="file" documentType="reference">
+		<Node id="31" type="file" documentType="reference">
             <Name>APSControlsOverlayComponents</Name>
             <Path>Constants/APSControlsOverlayComponents.html</Path>
             
         </Node>
-		<Node id="31" type="file" documentType="reference">
+		<Node id="32" type="file" documentType="reference">
             <Name>APSMediaControlsDisplay</Name>
             <Path>Constants/APSMediaControlsDisplay.html</Path>
             
         </Node>
-		<Node id="32" type="file" documentType="reference">
+		<Node id="33" type="file" documentType="reference">
             <Name>APSMediaOverlayPosition</Name>
             <Path>Constants/APSMediaOverlayPosition.html</Path>
             
         </Node>
-		<Node id="33" type="file" documentType="reference">
+		<Node id="34" type="file" documentType="reference">
             <Name>APSResolvMultipleAdsConflictsBy</Name>
             <Path>Constants/APSResolvMultipleAdsConflictsBy.html</Path>
             
         </Node>
-		<Node id="34" type="file" documentType="reference">
+		<Node id="35" type="file" documentType="reference">
             <Name>APSSkipOverlayProgressPosition</Name>
             <Path>Constants/APSSkipOverlayProgressPosition.html</Path>
             
         </Node>
-		<Node id="35" type="file" documentType="reference">
+		<Node id="36" type="file" documentType="reference">
             <Name>APSVASTConfigurationOptions</Name>
             <Path>Constants/APSVASTConfigurationOptions.html</Path>
             
         </Node>
-		<Node id="36" type="file" documentType="reference">
+		<Node id="37" type="file" documentType="reference">
             <Name>APSWebviewDismissedAction</Name>
             <Path>Constants/APSWebviewDismissedAction.html</Path>
             

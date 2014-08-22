@@ -137,6 +137,10 @@ typedef NS_ENUM(NSInteger, APSMediaControlsDisplay) {
  */
 @property (nonatomic) APSMediaControlsDisplay controlsDisplay;
 /**
+ *  Assigns a unit manager to the current unit. See APSUnitManagerProtocol for more information.
+ */
+@property (nonatomic) NSString *managerType;
+/**
  The configuration for the controls bar overlay.
  
  The following keys are available:

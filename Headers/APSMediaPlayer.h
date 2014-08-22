@@ -15,11 +15,11 @@
 #import "APSMediaUnit.h"
 #import "TSMiniWebBrowser.h"
 
-#define kAPSMediaPlayerOverlayControllersGroup @"com.appscend.mp.controllers.overlay"
-
 #define kAPSMediaPlayerEventType @"com.appscend.mp.event.type"
 #define kAPSMediaPlayerEventDescription @"com.appscend.mp.event.description"
 #define kAPSMediaPlayerEventURLs @"com.appscend.mp.event.urls"
+
+@protocol APSUnitManagerProtocol;
 
 ///--------------------
 /// @name Notifications
@@ -402,6 +402,31 @@ typedef void (^APSMediaPlayerFinishBlock)();
  *  Exit fullscreen mode.
  */
 - (void)exitFullscreen;
+
+/**-----------------------------------------------------------------------------
+ * @name Extending
+ * -----------------------------------------------------------------------------
+ */
+/**
+ *  Registers a new overlay controller with the player.
+ *
+ *  @param controllerClass The class of the new overlay controller.
+ */
+- (void)registerOverlayController:(Class<APSMediaPlayerOverlayControllerProtocol>)controllerClass;
+/**
+ *  This method instantiates and returns a new object of the class registered for the given overlay type.
+ *
+ *  @param type The type of controller required.
+ *
+ *  @return A new object that implements `APSMediaPlayerOverlayControllerProtocol` or `nil` if no controllers are registered for the given type.
+ */
+- (NSObject<APSMediaPlayerOverlayControllerProtocol>*)overlayControllerForType:(NSString*)type;
+/**
+ *  Registers a new unit manager to dynamically handle media playback.
+ *
+ *  @param managerClass The new unit manager object.
+ */
+- (void)registerUnitManager:(NSObject<APSUnitManagerProtocol>*)managerClass;
 
 /**-----------------------------------------------------------------------------
  * @name Other

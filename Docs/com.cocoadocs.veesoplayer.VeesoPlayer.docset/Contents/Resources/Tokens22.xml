@@ -104,11 +104,11 @@
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/KRHub/registerClass:inGroup:type:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/KRHub/registerClass:inGroup:</TokenIdentifier>
 			<Abstract type="html">Registers a class to a specific group and a specific type. Upon requesting a new object from this group and type, a new object of the registered class will be instantiated and returned.</Abstract>
 			<DeclaredIn>KRHub.h</DeclaredIn>
 			
-			<Declaration>- (void)registerClass:(Class)cclass inGroup:(NSString *)group type:(NSString *)type</Declaration>
+			<Declaration>- (void)registerClass:(Class)cclass inGroup:(NSString *)group</Declaration>
 			<Parameters>
 				<Parameter>
 					<Name>cclass</Name>
@@ -116,33 +116,27 @@
 				</Parameter><Parameter>
 					<Name>group</Name>
 					<Abstract type="html">The group to register the call into.</Abstract>
-				</Parameter><Parameter>
-					<Name>type</Name>
-					<Abstract type="html">The type of the registered class.</Abstract>
 				</Parameter>
 			</Parameters>
 			
-			<Anchor>//api/name/registerClass:inGroup:type:</Anchor>
+			<Anchor>//api/name/registerClass:inGroup:</Anchor>
             <NodeRef refid="22"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/KRHub/registerClass:type:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/KRHub/registerClass:</TokenIdentifier>
 			<Abstract type="html">Registers a class to the default group, under a specific type. Upon requesting a new object from this type from the default group, a new object of the registered class will be instantiated and returned.</Abstract>
 			<DeclaredIn>KRHub.h</DeclaredIn>
 			
-			<Declaration>- (void)registerClass:(Class)cclass type:(NSString *)type</Declaration>
+			<Declaration>- (void)registerClass:(Class)cclass</Declaration>
 			<Parameters>
 				<Parameter>
 					<Name>cclass</Name>
 					<Abstract type="html">The class to register</Abstract>
-				</Parameter><Parameter>
-					<Name>type</Name>
-					<Abstract type="html">The type of the registered class.</Abstract>
 				</Parameter>
 			</Parameters>
 			
-			<Anchor>//api/name/registerClass:type:</Anchor>
+			<Anchor>//api/name/registerClass:</Anchor>
             <NodeRef refid="22"/>
 		</Token>
 		

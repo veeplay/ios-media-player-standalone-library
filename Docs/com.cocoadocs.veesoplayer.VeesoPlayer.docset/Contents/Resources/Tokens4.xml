@@ -682,6 +682,57 @@
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/APSMediaPlayer/registerOverlayController:</TokenIdentifier>
+			<Abstract type="html">Registers a new overlay controller with the player.</Abstract>
+			<DeclaredIn>APSMediaPlayer.h</DeclaredIn>
+			
+			<Declaration>- (void)registerOverlayController:(Class&lt;APSMediaPlayerOverlayControllerProtocol&gt;)controllerClass</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>controllerClass</Name>
+					<Abstract type="html">The class of the new overlay controller.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/registerOverlayController:</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/APSMediaPlayer/overlayControllerForType:</TokenIdentifier>
+			<Abstract type="html">This method instantiates and returns a new object of the class registered for the given overlay type.</Abstract>
+			<DeclaredIn>APSMediaPlayer.h</DeclaredIn>
+			
+			<Declaration>- (NSObject&lt;APSMediaPlayerOverlayControllerProtocol&gt; *)overlayControllerForType:(NSString *)type</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>type</Name>
+					<Abstract type="html">The type of controller required.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">A new object that implements APSMediaPlayerOverlayControllerProtocol or nil if no controllers are registered for the given type.</Abstract></ReturnValue>
+			<Anchor>//api/name/overlayControllerForType:</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/APSMediaPlayer/registerUnitManager:</TokenIdentifier>
+			<Abstract type="html">Registers a new unit manager to dynamically handle media playback.</Abstract>
+			<DeclaredIn>APSMediaPlayer.h</DeclaredIn>
+			
+			<Declaration>- (void)registerUnitManager:(NSObject&lt;APSUnitManagerProtocol&gt; *)managerClass</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>managerClass</Name>
+					<Abstract type="html">The new unit manager object.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/registerUnitManager:</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/APSMediaPlayer/showActivityIndicator</TokenIdentifier>
 			<Abstract type="html">Shows an activity indicator, centrally in the player surface.</Abstract>
 			<DeclaredIn>APSMediaPlayer.h</DeclaredIn>

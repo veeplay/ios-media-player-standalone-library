@@ -254,6 +254,42 @@
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/APSMediaUnit/setManagerType:</TokenIdentifier>
+			<Abstract type="html">Assigns a unit manager to the current unit. See APSUnitManagerProtocol for more information.</Abstract>
+			<DeclaredIn>APSMediaUnit.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSString *managerType</Declaration>
+			
+			
+			<Anchor>//api/name/managerType</Anchor>
+            <NodeRef refid="14"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/APSMediaUnit/managerType</TokenIdentifier>
+			<Abstract type="html">Assigns a unit manager to the current unit. See APSUnitManagerProtocol for more information.</Abstract>
+			<DeclaredIn>APSMediaUnit.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSString *managerType</Declaration>
+			
+			
+			<Anchor>//api/name/managerType</Anchor>
+            <NodeRef refid="14"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/APSMediaUnit/managerType</TokenIdentifier>
+			<Abstract type="html">Assigns a unit manager to the current unit. See APSUnitManagerProtocol for more information.</Abstract>
+			<DeclaredIn>APSMediaUnit.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSString *managerType</Declaration>
+			
+			
+			<Anchor>//api/name/managerType</Anchor>
+            <NodeRef refid="14"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/APSMediaUnit/setControlsParameters:</TokenIdentifier>
 			<Abstract type="html">The configuration for the controls bar overlay.</Abstract>
 			<DeclaredIn>APSMediaUnit.h</DeclaredIn>
