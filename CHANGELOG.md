@@ -1,3 +1,10 @@
+### 1.8.5
+* This release fixes a series of issues that some media files with progressive download display in certain playback scenarios, including:
+  * Setting an initial playback time
+  * Resuming from a midroll block
+  * Resuming from a web browser window
+* Fixed bug with displaying midrolls on DRM units
+
 ### 1.8.4
 * This release brings support for unit managers. Unit managers are external objects that implement dynamic playback operations. Use them if you need to generate media URLs using timestamps or for implementing DRM support. See APSUnitManagerProtocol for more details.
 
@@ -9,7 +16,8 @@
 
 ### 1.8.2
 This release adds support for defining custom overlay controllers, as well as several new features.
-* Mid-rolls and banner ads scheduled for fixed time intervals are now inserted dinamically within a live stream.
+
+* Mid-rolls and banner ads scheduled for fixed time intervals are now inserted dynamically within a live stream.
 * Developers can create custom overlay controllers, by inheriting from `APSMediaPlayerOverlayController`, implementing the `type` and `load` methods (at least), and registering the controller class with the player, using `[[APSMediaPlayer sharedInstance] registerClass:[CLASSNAME class] inGroup:kAPSMediaPlayerOverlayControllersGroup type:@"TYPE"];`
 * Units and overlays now expose a mutable dictionary for metadata storage. Overlay controllers can use metadata information to implement custom functionality.
 * You can now configure the action the player should take with banner ads and video ads, after they are tapped and after the web browser they display is later closed by the user (close the banner/skip the ad or continue to display the ad for the rest of the normal lifespan).
