@@ -1,3 +1,9 @@
+### 1.8.6
+* The player frame should be set using the `setFrame` method, now available
+* Fullscreen-related issues have been fixed, with iOS 8 support
+* Tapping on ads now preserves the fullscreen status
+* Fixed issue with MRAID expandables while in fullscreen mode
+
 ### 1.8.5
 * This release fixes a series of issues that some media files with progressive download display in certain playback scenarios, including:
   * Setting an initial playback time
