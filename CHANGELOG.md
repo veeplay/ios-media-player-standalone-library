@@ -1,3 +1,14 @@
+### 1.8.13
+Fixed issue with multiple impressions and pause events being sent when clicking on ads.
+Fixed issue playing midrolls at a certain time interval inside a live stream.
+Fixed issue with resuming playback after tapping on video ads in certain configurations.
+
+### 1.8.12
+Fixed issue with event tracking.
+
+### 1.8.11
+Fixed issue with the creation of exit units via JSON/Dictionary configuration.
+
 ### 1.8.10
 Fixed issue with adding quote-encoding to URLs read via VAST.
 
