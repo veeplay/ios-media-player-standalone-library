@@ -1,3 +1,12 @@
+### 1.8.19
+Fix skipping ads by seeking in the media file
+
+### 1.8.18
+Configure fullscreen button in ads with transparent border by default
+
+### 1.8.17
+Added fullscreen button on ads
+
 ### 1.8.16
 Fixed issue with unwanted resuming of playback after coming back from background or from a modal view controller.
 
