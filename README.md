@@ -31,7 +31,7 @@ pod 'VeesoPlayer'
 
 2. **Installing via library download**
 
-- Add `MediaPlayer.framework`, `AVFoundation.framework`, `CoreMedia.framework` and `libz.dylib` to your project.
+- Add `MediaPlayer.framework`, `AVFoundation.framework` and `libz.dylib` to your project.
 
 - Select your target in the project settings screen.
 - Select the “Build Phases” tab.
