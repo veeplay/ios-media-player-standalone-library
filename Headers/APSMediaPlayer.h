@@ -34,13 +34,25 @@ NS_ENUM(NSInteger, APSBackendPlayer) {
 ///--------------------
 
 /**
+ *  Posted when the fullscreen button was pressed and internal fullscreen handling is disabled
+ */
+extern NSString *const APSMediaPlayerToggleFullscreenNotification;
+/**
  *  Posted before the media player enters fullscreen
  */
 extern NSString *const APSMediaPlayerWillEnterFullscreenNotification;
 /**
+ *  Posted after the media player enters fullscreen
+ */
+extern NSString *const APSMediaPlayerDidEnterFullscreenNotification;
+/**
  *  Posted before the media player exists fullscreen
  */
 extern NSString *const APSMediaPlayerWillExitFullscreenNotification;
+/**
+ *  Posted after the media player exists fullscreen
+ */
+extern NSString *const APSMediaPlayerDidExitFullscreenNotification;
 /**
  *  Posted when the user taps on the media player surface
  */
@@ -97,7 +109,14 @@ extern NSString *const APSMediaPlayerChromeCastConnectedNotification;
  *  Posted when the player disconnected from a Chromecast compatible device
  */
 extern NSString *const APSMediaPlayerChromeCastDisconnectedNotification;
-
+/**
+ *  Posted when the internal minibrowser will open because an ad was tapped
+ */
+extern NSString *const APSMediaPlayerWillOpenMiniBrowser;
+/**
+ *  Posted when the internal minibrowser will be dismissed
+ */
+extern NSString *const APSMediaPlayerWillCloseMiniBrowser;
 
 ///-------------------------------------
 /// @name Available Tracking Events
@@ -187,7 +206,7 @@ typedef void (^APSMediaPlayerFinishBlock)();
  
  - *kAPSMediaPlayerOverlayControllersGroup* - The group name that 3rd party overlay controllers must use when registering with the player.
  */
-@interface APSMediaPlayer : KRHub <TSMiniWebBrowserDelegate, GCKDeviceScannerListener, GCKDeviceManagerDelegate, UIActionSheetDelegate>
+@interface APSMediaPlayer : KRHub <TSMiniWebBrowserDelegate, GCKDeviceScannerListener, GCKDeviceManagerDelegate, UIActionSheetDelegate, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning>
 
 /**-----------------------------------------------------------------------------
  * @name Accessing the APSMediaPlayer Instance and its View
@@ -215,6 +234,16 @@ typedef void (^APSMediaPlayerFinishBlock)();
  *  The backend player class. Use `[APSAVPlayer class]` for the AVPlayer-based backend or `[APSMPMoviePlayer class]` for the MPMoviePlayerController-based backend
  */
 @property (nonatomic) enum APSBackendPlayer backendPlayer;
+
+/**
+ *  Set this to NO to disable internal fullscreen handling
+ */
+@property (nonatomic) BOOL internalFullscreenSupport;
+
+/**
+ *  Enable auto-fullscreen on device orientation
+ */
+@property (nonatomic) BOOL fullscreenOnLandscapeRotate;
 
 /**-----------------------------------------------------------------------------
  * @name Working with Media Units
@@ -566,6 +595,10 @@ typedef void (^APSMediaPlayerFinishBlock)();
  *  Returns an array of units owned by an APSVASTAdbreak object
  */
 - (NSArray*)unitsForAdbreak:(APSVASTAdBreak *)adbreak;
+/*
+ *  Returns an array of current unit's adbreaks
+ */
+- (NSArray *)adbreaks;
 /**
  *  Parses a string format and returns a translated time interval in seconds.
  *

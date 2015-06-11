@@ -1,3 +1,9 @@
+### 2.0.11
+Use a UIViewController instead of MTZoomWindow for fullscreen support
+
+### 2.0.10
+Provide an interface to disable internal fullscreen handling
+
 ### 2.0.9
 Fix removal of units which haven't preloaded yet
 
