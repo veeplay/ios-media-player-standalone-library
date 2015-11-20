@@ -1,3 +1,9 @@
+### 2.0.26.3
+Workaround for MPMoviePlayerController not sending MPMoviePlayerLoadStateDidChangeNotification sometimes
+
+### 2.0.26.2
+Fix a linker issue
+
 ### 2.0.26.1
 Fix a random issue when UI was not properly updated when unit's initialPlayBackTime was greater than 0
 
