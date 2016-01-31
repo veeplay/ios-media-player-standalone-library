@@ -1,5 +1,10 @@
-### 2.0.30
-Bugfixes
+### 2.1
+Cleanup release. Main changes:
+* Now officially called `Veeplay` - deprecated the `VeesoPlayer` pod
+* Separated VeeplayChromecast into separate plugin
+* Replaced all MPMoviePlayer constants with own ones
+* Updated thumbnail retrieval methods
+* Switched doc generator to classic appledoc
 
 ### 2.0.29
 Fix wrong behaviour when seeking back and using `APSHandleSeekEventPlayLastBreak`
