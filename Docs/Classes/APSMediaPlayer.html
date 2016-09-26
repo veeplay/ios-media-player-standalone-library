@@ -7,7 +7,7 @@
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
-	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
 </head>
 <body class="appledoc">
 	<header>
@@ -60,6 +60,8 @@
 		
 		<option value="//api/name/advertisingIdentifier">advertisingIdentifier</option>
 		
+		<option value="//api/name/allowedAppInterfaceOrientation">allowedAppInterfaceOrientation</option>
+		
 		<option value="//api/name/allowsAirPlay">allowsAirPlay</option>
 		
 		<option value="//api/name/backendPlayer">backendPlayer</option>
@@ -69,6 +71,8 @@
 		<option value="//api/name/detectBreachedDevice">detectBreachedDevice</option>
 		
 		<option value="//api/name/fullscreenOnLandscapeRotate">fullscreenOnLandscapeRotate</option>
+		
+		<option value="//api/name/fullscreenOrientationBehaviour">fullscreenOrientationBehaviour</option>
 		
 		<option value="//api/name/ignoreSilentSwitch">ignoreSilentSwitch</option>
 		
@@ -108,6 +112,8 @@
 		
 		<option value="//api/name/airPlayVideoActive">- airPlayVideoActive</option>
 		
+		<option value="//api/name/availableSubtitles">- availableSubtitles</option>
+		
 		<option value="//api/name/clear">- clear</option>
 		
 		<option value="//api/name/currentPlaybackTime">- currentPlaybackTime</option>
@@ -115,6 +121,8 @@
 		<option value="//api/name/currentUnit">- currentUnit</option>
 		
 		<option value="//api/name/duration">- duration</option>
+		
+		<option value="//api/name/enableSubtitle:">- enableSubtitle:</option>
 		
 		<option value="//api/name/enterFullscreen">- enterFullscreen</option>
 		
@@ -674,6 +682,98 @@ The <code>userinfo</code> dictionary contains additional information about the t
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
 				<p>Enable auto-fullscreen on device orientation</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">APSMediaPlayer.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/fullscreenOrientationBehaviour" title="fullscreenOrientationBehaviour"></a>
+	<h3 class="method-title"><code><a href="#//api/name/fullscreenOrientationBehaviour">&nbsp;&nbsp;fullscreenOrientationBehaviour</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Define allowed orientations for fullscreen mode</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) APSFullscreenOrientationBehaviour fullscreenOrientationBehaviour</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Define allowed orientations for fullscreen mode</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">APSMediaPlayer.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/allowedAppInterfaceOrientation" title="allowedAppInterfaceOrientation"></a>
+	<h3 class="method-title"><code><a href="#//api/name/allowedAppInterfaceOrientation">&nbsp;&nbsp;allowedAppInterfaceOrientation</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Overwrite orientations allowed by the app. This is used for fullscreen support. Falls back to settings from the app&rsquo;s plist as well as settings on the root <a href="#//api/name/view">view</a> controller.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) UIInterfaceOrientation allowedAppInterfaceOrientation</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Overwrite orientations allowed by the app. This is used for fullscreen support. Falls back to settings from the app&rsquo;s plist as well as settings on the root <a href="#//api/name/view">view</a> controller.</p>
 			</div>
 			
 
@@ -2748,6 +2848,117 @@ The <code>userinfo</code> dictionary contains additional information about the t
 			
 		</div>
 	</div>
+</div><div class="section-method">
+	<a name="//api/name/availableSubtitles" title="availableSubtitles"></a>
+	<h3 class="method-title"><code><a href="#//api/name/availableSubtitles">&ndash;&nbsp;availableSubtitles</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns a NSDictionary with available subtitles
+The dictionary has the form {&ldquo;language_code&rdquo; : &ldquo;Language Name&rdquo;}</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSDictionary *)availableSubtitles</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A <code>NSDictionary</code> with available subtitles</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Returns a NSDictionary with available subtitles
+The dictionary has the form {&ldquo;language_code&rdquo; : &ldquo;Language Name&rdquo;}</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">APSMediaPlayer.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/enableSubtitle:" title="enableSubtitle:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/enableSubtitle:">&ndash;&nbsp;enableSubtitle:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Enable the corresponding subtitle for the given language</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)enableSubtitle:(NSString *)<em>language</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>language</code></th>
+						<td><p><code>NSString</code> the language code to enable</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Enable the corresponding subtitle for the given language</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">APSMediaPlayer.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
 </div>
 						</div>
 						
@@ -3990,10 +4201,10 @@ The <code>userinfo</code> dictionary contains additional information about the t
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2016 Veeplay. All rights reserved. Updated: 2016-02-08</p>
+						<p class="copyright">Copyright &copy; 2016 Veeplay. All rights reserved. Updated: 2016-09-26</p>
 						
 						
-						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
 						
 					</div>
 				</footer>

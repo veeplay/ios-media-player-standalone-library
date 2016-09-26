@@ -1,3 +1,4 @@
+
 ## About
 
 [<img src="http://veeplay.com/wp-content/themes/veeplay/images/logo_veeplay_small.png">](http://veeplay.com)
@@ -36,7 +37,7 @@ There are currently two integration paths: via CocoaPods or via standard library
         - Select your target in the project settings screen.
         - Select the “Build Phases” tab.
         - Expand the “Link Binary With Libraries” area.
-        - Click the “+” button, and add `MediaPlayer.framework`, `AVFoundation.framework` and `libz.dylib` to your project.
+        - Click the “+” button, and add `MediaPlayer.framework`, `AVFoundation.framework`, `CoreMedia.framework`, `SystemConfiguration.framework` and `libz.dylib` to your project.
         
     - Add the player’s static library to your project.
     
@@ -217,7 +218,6 @@ To enable Picture in Picture support please make sure you configured your projec
                 }
             ]
         }
-
 
 ### Example Unit Configurations
 

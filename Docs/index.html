@@ -7,7 +7,7 @@
 
 	<link rel="stylesheet" href="css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
-	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
 </head>
 <body class="appledoc">
 	<header>
@@ -91,7 +91,7 @@
 <li>Select your target in the project settings screen.</li>
 <li>Select the “Build Phases” tab.</li>
 <li>Expand the “Link Binary With Libraries” area.</li>
-<li>Click the “+” button, and add <code>MediaPlayer.framework</code>, <code>AVFoundation.framework</code> and <code>libz.dylib</code> to your project.</li>
+<li>Click the “+” button, and add <code>MediaPlayer.framework</code>, <code>AVFoundation.framework</code>, <code>CoreMedia.framework</code>, <code>SystemConfiguration.framework</code> and <code>libz.dylib</code> to your project.</li>
 </ul>
 </li>
 <li><p>Add the player’s static library to your project.</p>
@@ -128,7 +128,7 @@
 
 <h2>Getting Started</h2>
 
-<p>Set up an account at <a href="http://panel.veeso.co">http://panel.veeso.co</a> and add your application&rsquo;s bundle identifier under &ldquo;License Management&rdquo;.</p>
+<p>Set up an account at <a href="http://panel.veeplay.com">http://panel.veeplay.com</a> and add your application&rsquo;s bundle identifier under &ldquo;License Management&rdquo;.</p>
 
 <p>Import the Player’s header file, as well as the VAST/VMAP or other plugins:</p>
 
@@ -268,6 +268,47 @@
 </ul>
 
 
+<h2>Enabling Picture in Picture support</h2>
+
+<p>To enable Picture in Picture support please make sure you configured your project as described in <a href="https://developer.apple.com/library/ios/documentation/WindowsViews/Conceptual/AdoptingMultitaskingOniPad/QuickStartForPictureInPicture.html">Apple&rsquo;s documentation</a> then:</p>
+
+<ul>
+<li><p>Import PiP backend&rsquo;s header file:</p>
+
+<pre><code>  #import APSPiPPlayer.h&gt;
+</code></pre></li>
+<li><p>Set the backend player&rsquo;s class to <code>APSPipPlayer</code>:</p>
+
+<pre><code>  [[APSMediaPlayer sharedInstance] setBackendPlayerClass:[APSPiPPlayer class]];
+</code></pre></li>
+<li><p>(Optional) Display the Picture in Picture control in the control bar by adding <code>APSPiPControl</code> to the <code>controlsParameters</code> property on <code>APSMediaUnit</code>:</p>
+
+<pre><code>  unit.controlsParameters = @{kAPSControlsComponents: @(APSPlaybackControl|APSCurrentTimeControl|APSTimeSliderControl|APSTotalTimeControl|kAPSChromecastControl|APSPiPControl)};
+</code></pre>
+
+<ul>
+<li><p>Alternatively you can display the Picture in Picture playback control in the control bar by adding <code>pictureInPicture</code> into the components array, under the <code>controls</code> section in your JSON configuration file:</p>
+
+<p>  {
+      &ldquo;content&rdquo;: [
+          &ldquo;url&rdquo;: &ldquo;<a href="http://......">http://&hellip;&hellip;</a>&rdquo;,
+          &ldquo;autoplay&rdquo;: true,
+          &ldquo;controls&rdquo;: {
+              &ldquo;components&rdquo;: [
+                  &ldquo;playback&rdquo;,
+                  &ldquo;totalTime&rdquo;,
+                  &ldquo;slider&rdquo;,
+                  &ldquo;currentTime&rdquo;,
+                  &ldquo;pictureInPicture&rdquo;
+              ]
+          }
+      ]
+  }</p></li>
+</ul>
+</li>
+</ul>
+
+
 <h3>Example Unit Configurations</h3>
 
 <ul>
@@ -318,7 +359,7 @@
 
 <h2>License</h2>
 
-<p>Commercial license. Contact <a href="&#109;&#97;&#x69;&#108;&#116;&#x6f;&#58;&#x73;&#x61;&#108;&#101;&#115;&#x40;&#118;&#x65;&#101;&#x70;&#x6c;&#97;&#x79;&#46;&#99;&#111;&#109;">&#115;&#x61;&#x6c;&#x65;&#115;&#64;&#x76;&#101;&#x65;&#112;&#x6c;&#x61;&#x79;&#x2e;&#99;&#111;&#x6d;</a>.</p>
+<p>Commercial license. Contact <a href="&#109;&#97;&#105;&#x6c;&#x74;&#111;&#58;&#115;&#97;&#108;&#101;&#x73;&#64;&#118;&#x65;&#101;&#112;&#108;&#x61;&#x79;&#x2e;&#99;&#111;&#x6d;">&#x73;&#x61;&#x6c;&#101;&#115;&#x40;&#x76;&#x65;&#x65;&#x70;&#108;&#97;&#x79;&#46;&#99;&#x6f;&#109;</a>.</p>
 						
 						
 					</div>
@@ -372,9 +413,13 @@
 								
 								<li><a href="Classes/APSVASTFullscreenButtonConfiguration.html">APSVASTFullscreenButtonConfiguration</a></li>
 								
+								<li><a href="Classes/APSVASTFullscreenOverlayController.html">APSVASTFullscreenOverlayController</a></li>
+								
 								<li><a href="Classes/APSVASTMediaBuilderPlugin.html">APSVASTMediaBuilderPlugin</a></li>
 								
 								<li><a href="Classes/APSVASTSkipButtonConfiguration.html">APSVASTSkipButtonConfiguration</a></li>
+								
+								<li><a href="Classes/APSVASTSkipOverlayController.html">APSVASTSkipOverlayController</a></li>
 								
 								<li><a href="Classes/KRHub.html">KRHub</a></li>
 								
@@ -419,6 +464,8 @@
 								
 									<li><a href="Constants/APSControlsOverlayComponents.html">APSControlsOverlayComponents</a></li>
 								
+									<li><a href="Constants/APSFullscreenOrientationBehaviour.html">APSFullscreenOrientationBehaviour</a></li>
+								
 									<li><a href="Constants/APSHandleSeekEvent.html">APSHandleSeekEvent</a></li>
 								
 									<li><a href="Constants/APSMediaControlsDisplay.html">APSMediaControlsDisplay</a></li>
@@ -460,10 +507,10 @@
 					<footer>
 						<div class="footer-copyright">
 							
-							<p class="copyright">Copyright &copy; 2016 Veeplay. All rights reserved. Updated: 2016-02-08</p>
+							<p class="copyright">Copyright &copy; 2016 Veeplay. All rights reserved. Updated: 2016-09-26</p>
 							
 							
-							<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
+							<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
 							
 						</div>
 					</footer>

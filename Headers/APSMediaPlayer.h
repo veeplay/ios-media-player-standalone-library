@@ -156,6 +156,7 @@ extern NSString *const APSMediaPlayerVolumeDidChangeNotification;
 extern NSString *const APSMediaPlayerEventLaunch;
 extern NSString *const APSMediaPlayerEventStart;
 extern NSString *const APSMediaPlayerEventFinish;
+extern NSString *const APSMediaPlayerEventPlaylistFinish;
 extern NSString *const APSMediaPlayerEventExitFullscreen;
 extern NSString *const APSMediaPlayerEventFullscreen;
 extern NSString *const APSMediaPlayerEventImpression;
@@ -297,6 +298,15 @@ typedef void (^APSMediaPlayerFinishBlock)();
  */
 @property (nonatomic) BOOL fullscreenOnLandscapeRotate;
 
+/**
+ *  Define allowed orientations for fullscreen mode
+ */
+@property (nonatomic) APSFullscreenOrientationBehaviour fullscreenOrientationBehaviour;
+
+/**
+ *  Overwrite orientations allowed by the app. This is used for fullscreen support. Falls back to settings from the app's plist as well as settings on the root view controller.
+ */
+@property (nonatomic) UIInterfaceOrientation allowedAppInterfaceOrientation;
 
 /**-----------------------------------------------------------------------------
  * @name Working with Media Units
@@ -538,6 +548,20 @@ typedef void (^APSMediaPlayerFinishBlock)();
  * @return The mute status
  */
 -(BOOL)getMute;
+/**
+ *  Returns a NSDictionary with available subtitles
+ *  The dictionary has the form {"language_code" : "Language Name"}
+ *
+ *  @return A `NSDictionary` with available subtitles
+ */
+- (NSDictionary *)availableSubtitles;
+/**
+ *  Enable the corresponding subtitle for the given language
+ *
+ *  @param language `NSString` the language code to enable
+ *
+ */
+- (void)enableSubtitle:(NSString *)language;
 
 /**-----------------------------------------------------------------------------
  * @name Getting Video Thumbnails

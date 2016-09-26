@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>APSMediaEventState Constants Reference</title>
+	<title>APSFullscreenOrientationBehaviour Constants Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -59,13 +59,13 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">APSMediaEventState Constants Reference</h1>
+					<h1 class="title">APSFullscreenOrientationBehaviour Constants Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
 	<th>Declared in</th>
-	<td>APSMediaEvent.h</td>
+	<td>APSTypes.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -75,11 +75,11 @@
 					
 
                     
-                    <h3 class="subsubtitle method-title">APSMediaEventState</h3>
+                    <h3 class="subsubtitle method-title">APSFullscreenOrientationBehaviour</h3>
                     
 					
 					<div class="section section-overview">
-                        <p>Describes the current lifecycle state of a <a href="../Classes/APSMediaEvent.html">APSMediaEvent</a>.</p>
+                        <p>Possible settings for fullscreen orientation handling</p>
 					</div>
 					
 					
@@ -87,19 +87,13 @@
                         <!-- display enum values -->
                         
                         <h4 class="method-subtitle">Definition</h4>
-                        <code>typedef NS_ENUM(NSInteger, APSMediaEventState ) {<br>
+                        <code>typedef NS_ENUM(NSInteger, APSFullscreenOrientationBehaviour ) {<br>
                             
-                            &nbsp;&nbsp; <a href="">APSMediaEventStateUnloaded</a>,<br>
+                            &nbsp;&nbsp; <a href="">APSDefaultOrientation</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">APSMediaEventStatePreloading</a>,<br>
+                            &nbsp;&nbsp; <a href="">APSForcePortrait</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">APSMediaEventStatePreloaded</a>,<br>
-                            
-                            &nbsp;&nbsp; <a href="">APSMediaEventStateFailed</a>,<br>
-                            
-                            &nbsp;&nbsp; <a href="">APSMediaEventStateTriggered</a>,<br>
-                            
-                            &nbsp;&nbsp; <a href="">APSMediaEventStateFinished</a>,<br>
+                            &nbsp;&nbsp; <a href="">APSForceLandscape</a>,<br>
                             
                             };</code>
                     
@@ -109,11 +103,11 @@
                         <h4 class="method-subtitle">Constants</h4>
                         <dl class="termdef">
                             
-                            <dt><a name="" title="APSMediaEventStateUnloaded"></a><code>APSMediaEventStateUnloaded</code></dt>
+                            <dt><a name="" title="APSDefaultOrientation"></a><code>APSDefaultOrientation</code></dt>
 <dd>
 
 
-<p>The event has not yet been loaded.</p>
+<p>Default fullscreen orientation - matches phone orientation, according to user and app level settings</p>
 
 
 
@@ -121,16 +115,16 @@
 
     
 	<p>
-		Declared In <code class="declared-in-ref">APSMediaEvent.h</code>.
+		Declared In <code class="declared-in-ref">APSTypes.h</code>.
 	</p>
 	
 </dd>
                             
-                            <dt><a name="" title="APSMediaEventStatePreloading"></a><code>APSMediaEventStatePreloading</code></dt>
+                            <dt><a name="" title="APSForcePortrait"></a><code>APSForcePortrait</code></dt>
 <dd>
 
 
-<p>The event is currently preloading.</p>
+<p>Force portrait orientation for videos in fullscreen mode</p>
 
 
 
@@ -138,16 +132,16 @@
 
     
 	<p>
-		Declared In <code class="declared-in-ref">APSMediaEvent.h</code>.
+		Declared In <code class="declared-in-ref">APSTypes.h</code>.
 	</p>
 	
 </dd>
                             
-                            <dt><a name="" title="APSMediaEventStatePreloaded"></a><code>APSMediaEventStatePreloaded</code></dt>
+                            <dt><a name="" title="APSForceLandscape"></a><code>APSForceLandscape</code></dt>
 <dd>
 
 
-<p>The event has succesfully preloaded and is ready to be triggered.</p>
+<p>Force landscape orientation for videos in fullscreen mode</p>
 
 
 
@@ -155,58 +149,7 @@
 
     
 	<p>
-		Declared In <code class="declared-in-ref">APSMediaEvent.h</code>.
-	</p>
-	
-</dd>
-                            
-                            <dt><a name="" title="APSMediaEventStateFailed"></a><code>APSMediaEventStateFailed</code></dt>
-<dd>
-
-
-<p>The event failed to preload and should not be triggered.</p>
-
-
-
-
-
-    
-	<p>
-		Declared In <code class="declared-in-ref">APSMediaEvent.h</code>.
-	</p>
-	
-</dd>
-                            
-                            <dt><a name="" title="APSMediaEventStateTriggered"></a><code>APSMediaEventStateTriggered</code></dt>
-<dd>
-
-
-<p>The event is triggered.</p>
-
-
-
-
-
-    
-	<p>
-		Declared In <code class="declared-in-ref">APSMediaEvent.h</code>.
-	</p>
-	
-</dd>
-                            
-                            <dt><a name="" title="APSMediaEventStateFinished"></a><code>APSMediaEventStateFinished</code></dt>
-<dd>
-
-
-<p>The event finished.</p>
-
-
-
-
-
-    
-	<p>
-		Declared In <code class="declared-in-ref">APSMediaEvent.h</code>.
+		Declared In <code class="declared-in-ref">APSTypes.h</code>.
 	</p>
 	
 </dd>
@@ -223,7 +166,7 @@
                     
                     <div class="method-subsection declared-in-section">
                         <h4 class="method-subtitle">Declared In</h4>
-                        <p><code class="declared-in-ref">APSMediaEvent.h</code></p>
+                        <p><code class="declared-in-ref">APSTypes.h</code></p>
                     </div>
                     
                     
