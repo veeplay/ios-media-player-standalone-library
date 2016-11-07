@@ -1,3 +1,13 @@
+### 2.8.0
+New unit manager for YouTube videos
+
+### 2.7.0
+Subtitles fixes
+Fix an issue with seekbar layout when changing orientation
+
+### 2.6.9
+SRT subtitles support
+
 ### 2.6.8
 Send a 'NSNotification' if retrieving VAST data fails
 
