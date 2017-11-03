@@ -1,3 +1,9 @@
+### 2.8.7
+Set `modalPresentationCapturesStatusBarAppearance` on fullscreen view controller
+
+### 2.8.6
+Fix missing KVOController dependency in Podspec
+
 ### 2.8.5
 Fix crashes caused by objects being deallocated while still having observers attached to them
 Fix small issue with AVPlayer backend
