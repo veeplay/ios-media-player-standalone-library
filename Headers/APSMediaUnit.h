@@ -140,12 +140,17 @@ typedef NS_ENUM(NSInteger, APSHandleSeekEvent) {
 - (void)removeEvent:(APSMediaEvent*)event;
 
 /**
- *  Returns an array containing all event objects currently connected to the unit.
+ *  Returns an array containing all event objects currently connected to the unit, that are not dynamic (see [APSMediaEvent dynamicPosition]).
  *
  *  @return An array of objects that implement the `APSMediaEvent` protocol.
  */
 - (NSArray*)events;
 
+/**
+ *  Returns an array containing all event objects currently connected to the unit, that are dynamic (see [APSMediaEvent dynamicPosition]).
+ *
+ *  @return An array of objects that implement the `APSMediaEvent` protocol.
+ */
 - (NSArray*)dynamicEvents;
 
 /**-----------------------------------------------------------------------------
@@ -156,6 +161,10 @@ typedef NS_ENUM(NSInteger, APSHandleSeekEvent) {
  *  The video clip URL.
  */
 @property (nonatomic) NSURL *url;
+/**
+ *  If an ad, the URL to mezzanine file which was the source of this ad
+ */
+@property (nonatomic) NSURL *mezzanineUrl;
 /**
  *  Initial video playback time in seconds.
  */
@@ -168,6 +177,10 @@ typedef NS_ENUM(NSInteger, APSHandleSeekEvent) {
  *  Assigns a unit manager to the current unit. See APSUnitManagerProtocol for more information.
  */
 @property (nonatomic) NSString *managerType;
+/**
+ *  A NSURL pointing to the SRT subtitles to be loaded
+ */
+@property (nonatomic) NSURL *subtitlesURL;
 /**
  The configuration for the controls bar overlay.
  
@@ -222,7 +235,7 @@ typedef NS_ENUM(NSInteger, APSHandleSeekEvent) {
 /**
  *  The APSVASTAdBreak objects which created this unit
  */
-@property (nonatomic, weak) APSVASTAdBreak *adbreak;
+@property (nonatomic, strong) APSVASTAdBreak *adbreak;
 
 /**-----------------------------------------------------------------------------
  * @name Ad Handling

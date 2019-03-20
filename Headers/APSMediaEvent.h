@@ -64,6 +64,12 @@ typedef NS_ENUM(NSInteger, APSMediaEventState) {
  */
 - (void)onUnload;
 
+/**
+ *  This method allow setting event's state without triggering KVO observers
+ *  To be used inside - observeValueForKeyPath:ofObject:change:context:
+ */
+- (void)setStateWithoutTriggeringKVO:(APSMediaEventState)state;
+
 @end
 
 /**
@@ -160,6 +166,9 @@ typedef NS_ENUM(NSInteger, APSMediaEventState) {
  */
 @property NSTimeInterval preloadPoint;
 
+/**
+ *  Set this to `YES` if the event has no specific start time, and the player should handle insertion.
+ */
 @property BOOL dynamicPosition;
 
 @end
