@@ -1,3 +1,75 @@
+### 3.1.2
+Fix a crash caused by invalid VAST files
+
+### 3.1.1
+Move IMA support in a different Pod
+
+### 3.1.0
+Opt-in support for using Google IMA SDK instead of internal VAST parser
+
+### 3.0.15
+Fix a layout issue in default controls bar
+
+### 3.0.14
+Fix a condition when the video player would continue playing media units after it was stopped
+
+### 3.0.13
+Stability improvements
+
+### 3.0.12
+Use an iOS 10 compatible way to create ISO 8601 dates.
+
+### 3.0.11
+Fix a crash which occured when an invalid URL was provided as a tracking URL
+
+### 3.0.10
+Fix a bug when fullscreen overlays weren't properly removed from screen after an unit ends playing
+
+### 3.0.9
+Disabled MPMoviePlayerController-based backend on iOS 13
+
+### 3.0.8
+SSAI streams support
+
+### 3.0.7
+Fix UI calls from background threads
+Support for LIMITADTRACKING, REGULATIONS and GDPRCONSENT macros
+
+### 3.0.6
+Minor bugfix regarding ad counter
+
+### 3.0.5
+Fix loading activity indicator appearing over playing video
+
+### 3.0.4
+Show loading activity indicator while VAST data is retrieved.
+Support for `LIMITADTRACKING`, `REGULATIONS` and `GDPRCONSENT` VAST Macros.
+
+### 3.0.3
+Use `userAgent` property for [CLIENTUA], if available
+
+### 3.0.2
+Fix missing dependency in pod variant
+
+### 3.0.1
+Process macros in VAST URLs
+
+### 3.0.0
+VAST 4.1 and DAST support
+Rewrote overlays to use Autolayout
+
+### 2.9.10
+Fix a bug when ad breaks from an old playlist would act on the current one
+
+### 2.9.9
+Fix `APSMediaPlayerEventPlaylistFinish` being called when setting up the player
+
+### 2.9.8
+Fix build dependency issue
+
+### 2.9.7
+Migrate UI to AutoLayout for iPhone X support
+
 ### 2.9.6
 Preliminary VAST 4 support
 

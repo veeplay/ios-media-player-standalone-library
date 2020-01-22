@@ -8,13 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
-#import <TSMiniWebBrowser/TSMiniWebBrowser.h>
+#import "KINWebBrowserViewController.h"
 
 #import "KRHub.h"
 #import "APSMediaBuilder.h"
 #import "APSMediaOverlay.h"
 #import "APSMediaUnit.h"
 #import "APSTypes.h"
+#import "APSEvent.h"
+#import "APSVASTRegulationInformation.h"
 
 #define kAPSMediaPlayerEventType @"event.type"
 #define kAPSMediaPlayerEvent @"event"
@@ -24,6 +26,7 @@
 #define kAPSMediaPlayerCurrentDuration @"current_duration"
 #define kAPSMediaPlayerError @"error"
 #define kAPSMediaPlayerSeekStart @"seek_start"
+#define kAPSMediaPlayerSeekTo @"seek_to"
 
 #define kAPSMediaPlayerPlaybackDidFinishReason @"finish_reason"
 #define KAPSMediaPlayerCurrentUnit @"unit"
@@ -115,6 +118,7 @@ extern NSString *const APSMediaPlayerStatusChangedNotification;
  *  - the `kAPSMediaPlayerCurrentDuration` key returns the total duration of the unit that triggered the event
  *  - the `kAPSMediaPlayerError` is present in case the event signals an error
  *  - the `kAPSMediaPlayerSeekStart` is present for `APSMediaPlayerEventSeeked` events and indicates the playback time when the seek started
+ *  - the `kAPSMediaPlayerSeekTo` is present for `APSMediaPlayerEventSeeked` events and indicates the requested playback time to seek to
  */
 extern NSString *const APSMediaPlayerTrackedEventNotification;
 /**
@@ -160,6 +164,9 @@ extern NSString *const APSMediaPlayerEventPlaylistFinish;
 extern NSString *const APSMediaPlayerEventExitFullscreen;
 extern NSString *const APSMediaPlayerEventFullscreen;
 extern NSString *const APSMediaPlayerEventImpression;
+extern NSString *const APSMediaPlayerEventViewableImpressionViewable;
+extern NSString *const APSMediaPlayerEventViewableImpressionNotViewable;
+extern NSString *const APSMediaPlayerEventViewableImpressionUndetermined;
 extern NSString *const APSMediaPlayerEventCreativeView;
 extern NSString *const APSMediaPlayerEventResume;
 extern NSString *const APSMediaPlayerEventPause;
@@ -177,7 +184,10 @@ extern NSString *const APSMediaPlayerEventIconView;
 extern NSString *const APSMediaPlayerEventExpand;
 extern NSString *const APSMediaPlayerEventCollapse;
 extern NSString *const APSMediaPlayerEventUpdate;
+extern NSString *const APSMediaPlayerEventPosition;
 extern NSString *const APSMediaPlayerEventSeeked;
+extern NSString *const APSMediaPlayerEventSSAIAdStarted;
+extern NSString *const APSMediaPlayerEventSSAIAdEnded;
 
 /**
  *  The `APSMediaPlayerActionDelegate` protocol declares the two methods that a class must implement in order to become an `APSMediaPlayer` actionDelegate. The object implementing `APSMediaPlayer` will receive information about the URLs that need to be executed as the user interacts with the player.
@@ -205,7 +215,23 @@ extern NSString *const APSMediaPlayerEventSeeked;
  */
 typedef void (^APSMediaPlayerFinishBlock)();
 
-
+/**
+ *  Defines the viewability status of the player according to VAST 4 specifications
+ */
+typedef NS_ENUM(NSInteger, APSViewability) {
+    /**
+     *  Player's viewport is more than 50% viewable
+     */
+    APSViewabilityViewable,
+    /**
+     *  Player's viewport is less than 50% viewable
+     */
+    APSViewabilityNotViewable,
+    /**
+     *  Player's viewpoer could not be determined
+     */
+    APSViewabilityUndetermined
+};
 
 /**
  The APSMediaPlayer handles playback and rendering of APSMediaUnits and APSMediaOverlays.
@@ -233,6 +259,7 @@ typedef void (^APSMediaPlayerFinishBlock)();
  - the `kAPSMediaPlayerCurrentDuration` key returns the total duration of the unit that triggered the event
  - the `kAPSMediaPlayerError` is present in case the event signals an error
  - the `kAPSMediaPlayerSeekStart` is present for `APSMediaPlayerEventSeeked` events and indicates the playback time when the seek started
+ - the `kAPSMediaPlayerSeekTo` is present for `APSMediaPlayerEventSeeked` events and indicates the requested playback time to seek to
  - **APSMediaPlayerInvalidLicenseNotification** - Posted when the player license is invalid. Playback will be disabled.
  - **APSMediaPlayerWillOpenMiniBrowser** - Posted when the internal minibrowser will be opened.
  - **APSMediaPlayerWillCloseMiniBrowser** - Posted when the internal minibrowser will be dismissed.
@@ -249,7 +276,7 @@ typedef void (^APSMediaPlayerFinishBlock)();
  - *kAPSMediaPlayerBackendsGroup* - The group name that 3rd party backend renderers must use when registering with the player. See `APSMediaPlayerProtocol` for more details.
  - *kAPSMediaPlayerControlPluginsGroup* - The group name that 3rd party control plugins must use when registering with the player. See `APSControlPluginProtocol` for more details.
  */
-@interface APSMediaPlayer : KRHub <TSMiniWebBrowserDelegate, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning>
+@interface APSMediaPlayer : KRHub <UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning, KINWebBrowserDelegate>
 
 /**-----------------------------------------------------------------------------
  * @name Accessing the APSMediaPlayer Instance and its View
@@ -262,6 +289,12 @@ typedef void (^APSMediaPlayerFinishBlock)();
  *  @return The shared `APSMediaPlayer` instance
  */
 + (instancetype)sharedInstance;
+/**
+ *  List of supported media types
+ *
+ *  @return An array of supported media types by APSMediaPlayer
+ */
++ (NSArray<NSString*> *)supportedMimeTypes;
 /**
  *  The container `UIView` of the player.
  */
@@ -286,6 +319,12 @@ typedef void (^APSMediaPlayerFinishBlock)();
  *  The user agent that should be used when making HTTP requests.
  */
 @property (nonatomic) NSString *userAgent;
+
+/**
+ * Consent information regarding GDPR and other regulations
+ */
+@property (nonatomic) APSVASTRegulationInformation *regulationInformation;
+
 /**
  *  Set this to NO to disable internal fullscreen handling. Fullscreen functionality should be implemented externally, using the available methods and notifications emitted by the player.
  */
@@ -300,6 +339,11 @@ typedef void (^APSMediaPlayerFinishBlock)();
  *  Enable auto-fullscreen on device orientation
  */
 @property (nonatomic) BOOL fullscreenOnLandscapeRotate;
+
+/**
+ *  Enable Google's IMA SDK
+ */
+@property (nonatomic) BOOL preferGoogleIma;
 
 /**
  *  Define allowed orientations for fullscreen mode
@@ -379,13 +423,19 @@ typedef void (^APSMediaPlayerFinishBlock)();
  *  This method triggers an `APSMediaPlayerTrackedEventNotification` notification.
  *  @warning Also sends tracking information to one or more servers. All specified URLs will be requested via GET. If the given object is an instance of the `APSMediaUnit` or the `APSMediaOverlay` classes, the `trackingURLs` dictionary property will be searched for the `type` key to identify the URLs that need to be pinged. Alternatively, you can pass a `NSArray`, a `NSURL` or a `NSString` as the object parameter. See "Available Tracking Events" for a list of supported event types.
  *
- *  @param event The specific event subtype. May be nil for simple events.
- *  @param type  The tracked event type. See "Available Tracking Events".
- *  @param object The `APSMediaUnit` or `APSMediaOverlay` instance that generated the notification. Can be nil for non-unit related events.
- *  @param metadata Additional key-value pairs to send via the notification's userInfo to subscribers.
- *  @param urls An array of `NSURL` objects representing addresses that should be pinged. Also accepts an array of `NSString` objects, a single `NSURL` or a single `NSString`.
+ *  @param event The APSEvent object containing event info.
  */
-- (void)trackEvent:(NSString*)event type:(NSString*)type forObject:(id)object metadata:(NSDictionary*)metadata urls:(id)urls;
+- (void)trackEvent:(APSEvent *)event;
+/*
+*  Old method to track event. This is deprecated now, please use `-trackEvent:(APSEvent *)event`.
+*
+*  @param event The specific event subtype. May be nil for simple events.
+*  @param type  The tracked event type. See "Available Tracking Events".
+*  @param object The `APSMediaUnit` or `APSMediaOverlay` instance that generated the notification. Can be nil for non-unit related events.
+*  @param metadata Additional key-value pairs to send via the notification's userInfo to subscribers.
+*  @param urls An array of `NSURL` objects representing addresses that should be pinged. Also accepts an array of `NSString` objects, a single `NSURL` or a single `NSString`.
+*/
+- (void)trackEvent:(NSString*)event type:(NSString*)type forObject:(id)object metadata:(NSDictionary*)metadata urls:(id)urls __deprecated_msg("use trackEvent: instead");
 
 /**
  *  This is a wrapper for trackEvent:type:forObject:metadata:urls:
@@ -394,7 +444,7 @@ typedef void (^APSMediaPlayerFinishBlock)();
  *  @param type  The tracked event type. See "Available Tracking Events".
  *  @param object The `APSMediaUnit` or `APSMediaOverlay` instance that generated the notification. Can be nil for non-unit related events.
  */
-- (void)trackEvent:(NSString*)event type:(NSString*)type forObject:(id)object;
+- (void)trackEvent:(NSString*)event type:(NSString*)type forObject:(id)object __deprecated_msg("use trackEvent: instead");
 
 /**-----------------------------------------------------------------------------
  * @name URL Handling
@@ -552,6 +602,12 @@ typedef void (^APSMediaPlayerFinishBlock)();
  */
 -(BOOL)getMute;
 /**
+ *  Get the player's viewability state
+ *
+ *  @return Player's viewability state
+ */
+@property (nonatomic, readonly) APSViewability viewability;
+/**
  *  Returns a NSDictionary with available subtitles
  *  The dictionary has the form {"language_code" : "Language Name"}
  *
@@ -706,7 +762,12 @@ typedef void (^APSMediaPlayerFinishBlock)();
 /**
  *  Use this property to store the unique device advertising identifier, that can then be used by 3rd party components.
  */
-@property (nonatomic) NSString *advertisingIdentifier;
+@property (nonatomic) NSString *advertisingIdentifier __deprecated_msg("Use APSVASTAdBreak delegate.");
+
+/**
+ *  A NSURLSession used for retrieving data from the internet
+ */
+@property (nonatomic, readonly, nonnull) NSURLSession *urlSession;
 
 /**
  *  Resets the media player backend.
