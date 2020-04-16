@@ -37,7 +37,7 @@ There are currently two integration paths: via CocoaPods or via standard library
         - Select your target in the project settings screen.
         - Select the “Build Phases” tab.
         - Expand the “Link Binary With Libraries” area.
-        - Click the “+” button, and add `AVKit.framework`, `AVFoundation.framework`, `CoreMedia.framework`, `SystemConfiguration.framework` and `libz.dylib` to your project.
+        - Click the “+” button, and add `MediaPlayer.framework`, `AVFoundation.framework`, `CoreMedia.framework`, `SystemConfiguration.framework` and `libz.dylib` to your project.
         
     - Add the player’s static library to your project.
     
@@ -46,11 +46,12 @@ There are currently two integration paths: via CocoaPods or via standard library
         - Select your target in the project settings screen.
         - Select the “Build Settings” tab.
         - Search for “Other Linker Flags” and make sure that the “-ObjC” flag is present. If it is not, add it.
-        - Search for “iOS Deployment Target” and make sure to set the value to iOS 10 and up (iOS < 10 is not supported).
+        - Search for “iOS Deployment Target” and make sure to set the value to iOS 5 and up (iOS < 5 is not supported).
         
     - Add the player’s header files to your project.
     
         - Drag all the header files in the “headers” folder into your Xcode project OR
+        
         - Select your target in the project settings screen.
         - Select the “Build Settings” tab.
         - Search for “Header Search Paths” and make sure that all the header files are in a location that Xcode knows about.
