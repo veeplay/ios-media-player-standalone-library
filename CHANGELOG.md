@@ -1,3 +1,19 @@
+### 3.1.9
+* Added opt-in support for playing videos while the app is in background
+
+### 3.1.8
+* Fix an issue when `complete` tracking is not sent when calling `[APSMediaPlayer stop]` right after video ends
+* Added nullability annotations
+* Added multiple audio track support
+
+### 3.1.7
+Fix an issue with encoding tracking URLs
+
+### 3.1.6
+* Fix an issue when `[APSMediaPlayer stop]` is called when an item finishes playing and the "complete" tracking is not sent
+* Add `debug` property on `APSMediaPlayer` to enable logging
+* Fix `debug` property on `APSVASTAdBreak` not being passed to generated units
+
 ### 3.1.5
 Replaced UIWebView with WKWebView
 Removed YouTube and Vimeo overlays and replaced them with unit managers

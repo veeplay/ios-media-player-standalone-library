@@ -66,7 +66,11 @@
 		
 		<option value="//api/name/backendPlayerClass">backendPlayerClass</option>
 		
+		<option value="//api/name/debug">debug</option>
+		
 		<option value="//api/name/detectBreachedDevice">detectBreachedDevice</option>
+		
+		<option value="//api/name/enableBackgroundPlayback">enableBackgroundPlayback</option>
 		
 		<option value="//api/name/fullscreenOnLandscapeRotate">fullscreenOnLandscapeRotate</option>
 		
@@ -124,6 +128,8 @@
 		
 		<option value="//api/name/allowsAirPlay">- allowsAirPlay</option>
 		
+		<option value="//api/name/availableAudioTracks">- availableAudioTracks</option>
+		
 		<option value="//api/name/availableSubtitles">- availableSubtitles</option>
 		
 		<option value="//api/name/clear">- clear</option>
@@ -133,6 +139,8 @@
 		<option value="//api/name/currentUnit">- currentUnit</option>
 		
 		<option value="//api/name/duration">- duration</option>
+		
+		<option value="//api/name/enableAudioTrack:">- enableAudioTrack:</option>
 		
 		<option value="//api/name/enableSubtitle:">- enableSubtitle:</option>
 		
@@ -661,7 +669,7 @@ The <code>userinfo</code> dictionary contains additional information about the t
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>event</code></th>
-						<td><p>The APSEvent object containing event info.</p></td>
+						<td><p>The <a href="../Classes/APSEvent.html">APSEvent</a> object containing event info.</p></td>
 					</tr>
 				
 				</table>
@@ -1978,7 +1986,7 @@ The <code>userinfo</code> dictionary contains additional information about the t
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An array of the most recent <code>MPTimedMetadata</code> objects provided by the streamed movie. See Apple&rsquo;s <a href="https://developer.apple.com/library/ios/documentation/mediaplayer/reference/MPTimedMetadata_Class/Reference/Reference.html#//apple_ref/occ/cl/MPTimedMetadata">documentation</a> for more details about <code>MPTimedMetadata</code>.</p>
+				<p>An array of the most recent <code>MPTimedMetadata</code> objects provided by the streamed movie. See Apple&rsquo;s <a href="https://developer.apple.com/library/ios/documentation/mediaplayer/reference/MPTimedMetadata_Class/Reference/Reference.html#//apple_ref/occ/cl/MPTimedMetadata">documentation</a> for_Nullable more details about <code>MPTimedMetadata</code>.</p>
 			</div>
 			
 
@@ -2317,6 +2325,117 @@ The dictionary has the form {&ldquo;language_code&rdquo; : &ldquo;Language Name&
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
 				<p>Enable the corresponding subtitle for the given language</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">APSMediaPlayer.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/availableAudioTracks" title="availableAudioTracks"></a>
+	<h3 class="method-title"><code><a href="#//api/name/availableAudioTracks">&ndash;&nbsp;availableAudioTracks</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns a NSDictionary with available audio tracks
+The dictionary has the form {&ldquo;track_id&rdquo; : &ldquo;Track name&rdquo;}</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSDictionary *)availableAudioTracks</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A <code>NSDictionary</code> with available audio tracks</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Returns a NSDictionary with available audio tracks
+The dictionary has the form {&ldquo;track_id&rdquo; : &ldquo;Track name&rdquo;}</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">APSMediaPlayer.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/enableAudioTrack:" title="enableAudioTrack:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/enableAudioTrack:">&ndash;&nbsp;enableAudioTrack:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Select the corresponding audio track for the given audio track ID</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)enableAudioTrack:(NSString *)<em>trackId</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>trackId</code></th>
+						<td><p><code>NSString</code> the audio track ID to enable</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Select the corresponding audio track for the given audio track ID</p>
 			</div>
 			
 
@@ -3477,7 +3596,7 @@ The dictionary has the form {&ldquo;language_code&rdquo; : &ldquo;Language Name&
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic) APSBackendPlayer backendPlayer</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) _Nonnull APSBackendPlayer backendPlayer</code></div>
 
 		    
 			
@@ -3523,7 +3642,7 @@ The dictionary has the form {&ldquo;language_code&rdquo; : &ldquo;Language Name&
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) Class backendPlayerClass</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) Class _Nonnull backendPlayerClass</code></div>
 
 		    
 			
@@ -3536,6 +3655,52 @@ The dictionary has the form {&ldquo;language_code&rdquo; : &ldquo;Language Name&
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
 				<p>A class which is compliant to <a href="../Protocols/APSMediaPlayerProtocol.html"><code>APSMediaPlayerProtocol</code></a> and which will be used as a backend player. Use <code>[APSAVPlayer class]</code> for the AVPlayer-based backend or <code>[APSMPMoviePlayer class]</code> for the MPMoviePlayerController-based backend.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">APSMediaPlayer.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/debug" title="debug"></a>
+	<h3 class="method-title"><code><a href="#//api/name/debug">&nbsp;&nbsp;debug</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Enable debug logging</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) BOOL debug</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Enable debug logging</p>
 			</div>
 			
 
@@ -3945,7 +4110,7 @@ The dictionary has the form {&ldquo;language_code&rdquo; : &ldquo;Language Name&
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, weak) id&lt;APSMediaPlayerActionDelegate&gt; actionDelegate</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, weak) id&lt;APSMediaPlayerActionDelegate&gt; _Nullable actionDelegate</code></div>
 
 		    
 			
@@ -4091,7 +4256,7 @@ The dictionary has the form {&ldquo;language_code&rdquo; : &ldquo;Language Name&
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, copy) APSMediaPlayerFinishBlock onFinish</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, copy) APSMediaPlayerFinishBlock _Nullable onFinish</code></div>
 
 		    
 			
@@ -4334,6 +4499,52 @@ The dictionary has the form {&ldquo;language_code&rdquo; : &ldquo;Language Name&
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/enableBackgroundPlayback" title="enableBackgroundPlayback"></a>
+	<h3 class="method-title"><code><a href="#//api/name/enableBackgroundPlayback">&nbsp;&nbsp;enableBackgroundPlayback</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Set this to true to continue playing videos while the app is in background</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) BOOL enableBackgroundPlayback</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Set this to true to continue playing videos while the app is in background</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">APSMediaPlayer.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/)" title=")"></a>
 	<h3 class="method-title"><code><a href="#//api/name/)">&nbsp;&nbsp;)</a></code>
 </h3>
@@ -4350,7 +4561,7 @@ The dictionary has the form {&ldquo;language_code&rdquo; : &ldquo;Language Name&
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic) NSString *__deprecated_msg ( &quot;Use APSVASTAdBreak delegate.&quot; )</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) NSString *advertisingIdentifier __deprecated_msg ( &quot;Use APSVASTAdBreak delegate.&quot; )</code></div>
 
 		    
 			
@@ -4440,7 +4651,7 @@ The dictionary has the form {&ldquo;language_code&rdquo; : &ldquo;Language Name&
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2020 Veeplay. All rights reserved. Updated: 2020-04-30</p>
+						<p class="copyright">Copyright &copy; 2020 Veeplay. All rights reserved. Updated: 2020-08-11</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
